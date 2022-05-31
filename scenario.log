@@ -1,0 +1,568 @@
+vacuum_cleaner                 Trying to use intention RetryIntention to achieve goal RetryGoal#1[object Object]
+vacuum_cleaner>RetryIntention#0 Intention started
+vacuum_cleaner                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#0 goal:clean corridor,clean kitchen,clean bathroom,clean livingroom,clean bedroom,has_battery_level robot battery_100
+vacuum_cleaner>OnlinePlanning#1 Intention started
+alarm_agent                    Trying to use intention AliceAlarmIntention to achieve goal AliceAlarmGoal#2[object Object]
+alarm_agent>AliceAlarmIntention#2 Intention started
+alarm_agent                    Trying to use intention BobAlarmIntention to achieve goal BobAlarmGoal#3[object Object]
+alarm_agent>BobAlarmIntention#3 Intention started
+breakfast_agent                Trying to use intention SensePersonIntention to achieve goal SensePersonGoal#4[object Object]
+breakfast_agent>SensePersonIntention#4 Intention started
+breakfast_agent                Trying to use intention BreakfastIntention to achieve goal BreakfastGoal#5[object Object]
+breakfast_agent>BreakfastIntention#5 Intention started
+smart_cat_door_agent           Trying to use intention SenseCatIntention to achieve goal SenseCatGoal#6[object Object]
+smart_cat_door_agent>SenseCatIntention#6 Intention started
+smart_cat_door_agent           Trying to use intention SmartDoorIntention to achieve goal SmartDoorGoal#7[object Object]
+smart_cat_door_agent>SmartDoorIntention#7 Intention started
+vacuum_cleaner                 Belief changed: dirty kitchen
+vacuum_cleaner                 Belief changed: dirty livingroom
+vacuum_cleaner                 Belief changed: dirty bathroom
+vacuum_cleaner                 Belief changed: dirty corridor
+vacuum_cleaner                 Belief changed: dirty bedroom
+vacuum_cleaner                 Belief changed: in kitchen robot
+vacuum_cleaner                 Belief changed: is_room kitchen
+vacuum_cleaner                 Belief changed: is_room corridor
+vacuum_cleaner                 Belief changed: is_room livingroom
+vacuum_cleaner                 Belief changed: is_room bathroom
+vacuum_cleaner                 Belief changed: is_room bedroom
+vacuum_cleaner                 Belief changed: rooms_connected kitchen corridor
+vacuum_cleaner                 Belief changed: rooms_connected corridor kitchen
+vacuum_cleaner                 Belief changed: rooms_connected bathroom corridor
+vacuum_cleaner                 Belief changed: rooms_connected corridor bathroom
+vacuum_cleaner                 Belief changed: rooms_connected corridor livingroom
+vacuum_cleaner                 Belief changed: rooms_connected livingroom corridor
+vacuum_cleaner                 Belief changed: rooms_connected bedroom corridor
+vacuum_cleaner                 Belief changed: rooms_connected livingroom bedroom
+vacuum_cleaner                 Belief changed: has_charge_pad corridor
+vacuum_cleaner                 Belief changed: is_robot robot
+vacuum_cleaner                 Belief changed: has_battery_level robot battery_100
+vacuum_cleaner                 Belief changed: is_battery_level battery_100
+vacuum_cleaner                 Belief changed: is_battery_level battery_75
+vacuum_cleaner                 Belief changed: is_battery_level battery_50
+vacuum_cleaner                 Belief changed: is_battery_level battery_25
+vacuum_cleaner                 Belief changed: is_battery_level battery_0
+vacuum_cleaner                 Belief changed: battery_lower_level battery_100 battery_75
+vacuum_cleaner                 Belief changed: battery_lower_level battery_75 battery_50
+vacuum_cleaner                 Belief changed: battery_lower_level battery_50 battery_25
+vacuum_cleaner                 Belief changed: battery_lower_level battery_25 battery_0
+world                          Belief changed: dirty kitchen
+world                          Belief changed: dirty livingroom
+        Vacuum Cleaner: moved from kitchen to livingroom
+world                          Belief changed: dirty bathroom
+world                          Belief changed: dirty corridor
+world                          Belief changed: dirty bedroom
+world                          Belief changed: in kitchen robot
+        Vacuum Cleaner: moved from livingroom to kitchen
+world                          Belief changed: is_room kitchen
+world                          Belief changed: is_room corridor
+world                          Belief changed: is_room livingroom
+        Vacuum Cleaner: moved from kitchen to livingroom
+world                          Belief changed: is_room bathroom
+world                          Belief changed: is_room bedroom
+world                          Belief changed: rooms_connected kitchen corridor
+world                          Belief changed: rooms_connected corridor kitchen
+world                          Belief changed: rooms_connected bathroom corridor
+world                          Belief changed: rooms_connected corridor bathroom
+world                          Belief changed: rooms_connected corridor livingroom
+        Vacuum Cleaner: moved from livingroom to corridor
+world                          Belief changed: rooms_connected livingroom corridor
+        Vacuum Cleaner: moved from corridor to livingroom
+world                          Belief changed: rooms_connected bedroom corridor
+world                          Belief changed: rooms_connected livingroom bedroom
+world                          Belief changed: has_charge_pad corridor
+world                          Belief changed: is_robot robot
+world                          Belief changed: has_battery_level robot battery_100
+world                          Belief changed: is_battery_level battery_100
+world                          Belief changed: is_battery_level battery_75
+world                          Belief changed: is_battery_level battery_50
+world                          Belief changed: is_battery_level battery_25
+world                          Belief changed: is_battery_level battery_0
+world                          Belief changed: battery_lower_level battery_100 battery_75
+world                          Belief changed: battery_lower_level battery_75 battery_50
+world                          Belief changed: battery_lower_level battery_50 battery_25
+world                          Belief changed: battery_lower_level battery_25 battery_0
+        PersonSensor: bob moved to bedroom from bedroom
+        PersonSensor: alice moved to bedroom from bedroom
+        CatSensor: cat moved to bedroom
+breakfast_agent                Belief changed: person_just_woke_up bob
+breakfast_agent                Belief changed: person_just_woke_up alice
+smart_cat_door_agent           Belief changed: not cat_in_entrance
+        SmartBreakfast: preparing for bob, it  will be ready at 00:15
+        SmartBreakfast: preparing for alice, it  will be ready at 00:15
+        SmartDoor: cat in entrance: false
+smart_cat_door_agent>SenseCatIntention#6 Intention success
+smart_cat_door_agent           Succesfully used intention SenseCatIntention to achieve goal SenseCatGoal#6[object Object]
+smart_cat_door_agent>SmartDoorIntention#7 Intention success
+smart_cat_door_agent           Succesfully used intention SmartDoorIntention to achieve goal SmartDoorGoal#7[object Object]
+0:02:30 vacuum_cleaner>OnlinePlanning#1 Plan found:
+vacuum_cleaner>OnlinePlanning#1 - (clean kitchen robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#1 - (move kitchen corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (clean corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (move corridor bathroom robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (clean bathroom robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (move bathroom corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (move corridor livingroom robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (clean livingroom robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (move livingroom corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#1 - (move corridor livingroom robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#1 - (move livingroom bedroom robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (clean bedroom robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (move bedroom corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#1 - (charge corridor robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Clean kitchen robot battery_100 battery_75) Effect: clean kitchen,not dirty kitchen,not has_battery_level robot battery_100,has_battery_level robot battery_75
+vacuum_cleaner>Clean#8         Intention started
+world                          World: Clean robot
+world                          Belief changed: clean kitchen
+House: Room kitchen is now clean
+world                          Belief changed: not dirty kitchen
+world                          Belief changed: not has_battery_level robot battery_100
+world                          Belief changed: has_battery_level robot battery_75
+0:05:00 vacuum_cleaner>Clean#8         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move kitchen corridor robot battery_75 battery_50) Effect: in corridor robot,not in kitchen robot,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Move#9          Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+Vacuum Cleaner: moved from livingroom to corridor
+world                          Belief changed: not in kitchen robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+0:06:45 Alarm of alice, it's 06:45
+0:07:00 PersonSensor: alice moved to kitchen from bedroom
+        CatSensor: cat moved to kitchen
+0:07:15 Alarm of bob, it's 07:15
+0:07:30 PersonSensor: bob moved to kitchen from bedroom
+vacuum_cleaner>Move#9          Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Clean corridor robot battery_50 battery_25) Effect: clean corridor,not dirty corridor,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Clean#10        Intention started
+world                          World: Clean robot
+world                          Belief changed: clean corridor
+        House: Room corridor is now clean
+world                          Belief changed: not dirty corridor
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+0:08:00 PersonSensor: alice moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up alice
+0:08:15 CatSensor: cat moved to entrance
+smart_cat_door_agent           Belief changed: cat_in_entrance
+        SmartDoor: cat in entrance: true
+        SmartDoor: door just opened
+0:08:30 PersonSensor: bob moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up bob
+0:10:00 vacuum_cleaner>Clean#10        Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#11       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+0:12:30 vacuum_cleaner>Charge#11       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_75 battery_50) Effect: not has_battery_level robot battery_50,has_battery_level robot battery_75
+vacuum_cleaner>Charge#12       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_75
+0:13:00 PersonSensor: alice moved to living_room from outside
+0:14:00 CatSensor: cat moved to living_room
+smart_cat_door_agent           Belief changed: not cat_in_entrance
+        SmartDoor: cat in entrance: false
+        SmartDoor: door just closed
+0:15:00 vacuum_cleaner>Charge#12       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move corridor bathroom robot battery_75 battery_50) Effect: in bathroom robot,not in corridor robot,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Move#13         Intention started
+world                          World: Move robot
+world                          Belief changed: in bathroom robot
+Vacuum Cleaner: moved from corridor to bathroom
+world                          Belief changed: not in corridor robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+0:17:30 vacuum_cleaner>Move#13         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Clean bathroom robot battery_50 battery_25) Effect: clean bathroom,not dirty bathroom,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Clean#14        Intention started
+world                          World: Clean robot
+world                          Belief changed: clean bathroom
+House: Room bathroom is now clean
+world                          Belief changed: not dirty bathroom
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+0:18:15 PersonSensor: bob moved to living_room from outside
+0:18:30 PersonSensor: bob moved to studio from living_room
+0:19:30 PersonSensor: alice moved to kitchen from living_room
+        CatSensor: cat moved to kitchen
+        PersonSensor: bob moved to kitchen from studio
+0:20:00 vacuum_cleaner>Clean#14        Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move bathroom corridor robot battery_25 battery_0) Effect: in corridor robot,not in bathroom robot,not has_battery_level robot battery_25,has_battery_level robot battery_0
+vacuum_cleaner>Move#15         Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+Vacuum Cleaner: moved from bathroom to corridor
+world                          Belief changed: not in bathroom robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_0
+0:20:30 PersonSensor: bob moved to living_room from kitchen
+0:21:30 PersonSensor: alice moved to bedroom from kitchen
+0:21:45 CatSensor: cat moved to bedroom
+0:22:30 PersonSensor: bob moved to bedroom from living_room
+        Alarm of alice has just been set
+        Alarm of bob has just been set
+vacuum_cleaner>Move#15         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_25 battery_0) Effect: not has_battery_level robot battery_0,has_battery_level robot battery_25
+vacuum_cleaner>Charge#16       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_0
+world                          Belief changed: has_battery_level robot battery_25
+0:22:45 SmartBreakfast: has been loaded
+0:23:00 House: Room bathroom is now dirty
+0:23:45 HouseAgent: house consumption cost today is 0.56€
+        House: Room kitchen is clean
+        House: Room livingroom is dirty
+        House: Room entrance is dirty
+        House: Room bathroom is dirty
+        House: Room bedroom is dirty
+        House: Room studio is dirty
+        House: Room outside is dirty
+        House: Room corridor is clean
+1:01:00 vacuum_cleaner>Charge#16       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#17       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+1:03:30 vacuum_cleaner>Charge#17       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_75 battery_50) Effect: not has_battery_level robot battery_50,has_battery_level robot battery_75
+vacuum_cleaner>Charge#18       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_75
+1:06:00 vacuum_cleaner>Charge#18       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move corridor livingroom robot battery_75 battery_50) Effect: in livingroom robot,not in corridor robot,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Move#19         Intention started
+world                          World: Move robot
+world                          Belief changed: in livingroom robot
+Vacuum Cleaner: moved from corridor to livingroom
+world                          Belief changed: not in corridor robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+1:06:45 Alarm of alice, it's 06:45
+1:07:00 PersonSensor: alice moved to kitchen from bedroom
+        CatSensor: cat moved to kitchen
+breakfast_agent                Belief changed: person_just_woke_up alice
+        SmartBreakfast: preparing for alice, it  will be ready at 07:15
+1:07:15 Alarm of bob, it's 07:15
+1:07:30 PersonSensor: bob moved to kitchen from bedroom
+breakfast_agent                Belief changed: person_just_woke_up bob
+        SmartBreakfast: preparing for bob, it  will be ready at 07:45
+1:08:00 PersonSensor: alice moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up alice
+1:08:15 CatSensor: cat moved to entrance
+smart_cat_door_agent           Belief changed: cat_in_entrance
+        SmartDoor: cat in entrance: true
+        SmartDoor: door just opened
+1:08:30 PersonSensor: bob moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up bob
+vacuum_cleaner>Move#19         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Clean livingroom robot battery_50 battery_25) Effect: clean livingroom,not dirty livingroom,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Clean#20        Intention started
+world                          World: Clean robot
+world                          Belief changed: clean livingroom
+        House: Room livingroom is now clean
+world                          Belief changed: not dirty livingroom
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+1:11:00 vacuum_cleaner>Clean#20        Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move livingroom corridor robot battery_25 battery_0) Effect: in corridor robot,not in livingroom robot,not has_battery_level robot battery_25,has_battery_level robot battery_0
+vacuum_cleaner>Move#21         Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+Vacuum Cleaner: moved from livingroom to corridor
+world                          Belief changed: not in livingroom robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_0
+1:13:00 PersonSensor: alice moved to living_room from outside
+1:13:30 vacuum_cleaner>Move#21         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_25 battery_0) Effect: not has_battery_level robot battery_0,has_battery_level robot battery_25
+vacuum_cleaner>Charge#22       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_0
+world                          Belief changed: has_battery_level robot battery_25
+1:14:00 CatSensor: cat moved to living_room
+smart_cat_door_agent           Belief changed: not cat_in_entrance
+        SmartDoor: cat in entrance: false
+        SmartDoor: door just closed
+1:16:00 vacuum_cleaner>Charge#22       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#23       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+1:18:15 PersonSensor: bob moved to living_room from outside
+1:18:30 PersonSensor: bob moved to studio from living_room
+vacuum_cleaner>Charge#23       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_75 battery_50) Effect: not has_battery_level robot battery_50,has_battery_level robot battery_75
+vacuum_cleaner>Charge#24       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_75
+1:19:30 PersonSensor: alice moved to kitchen from living_room
+        CatSensor: cat moved to kitchen
+        PersonSensor: bob moved to kitchen from studio
+1:20:30 PersonSensor: bob moved to living_room from kitchen
+1:21:00 vacuum_cleaner>Charge#24       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_100 battery_75) Effect: not has_battery_level robot battery_75,has_battery_level robot battery_100
+vacuum_cleaner>Charge#25       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_100
+1:21:30 PersonSensor: alice moved to bedroom from kitchen
+1:21:45 CatSensor: cat moved to bedroom
+1:22:30 PersonSensor: bob moved to bedroom from living_room
+        Alarm of bob has just been set
+        Alarm of alice has just been set
+1:22:45 SmartBreakfast: has been loaded
+1:23:00 House: Room kitchen is now dirty
+1:23:30 vacuum_cleaner>Charge#25       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move corridor livingroom robot battery_100 battery_75) Effect: in livingroom robot,not in corridor robot,not has_battery_level robot battery_100,has_battery_level robot battery_75
+vacuum_cleaner>Move#26         Intention started
+world                          World: Move robot
+world                          Belief changed: in livingroom robot
+Vacuum Cleaner: moved from corridor to livingroom
+world                          Belief changed: not in corridor robot
+world                          Belief changed: not has_battery_level robot battery_100
+world                          Belief changed: has_battery_level robot battery_75
+1:23:45 HouseAgent: house consumption cost today is 0.58€
+        House: Room kitchen is dirty
+        House: Room livingroom is clean
+        House: Room entrance is dirty
+        House: Room bathroom is dirty
+        House: Room bedroom is dirty
+        House: Room studio is dirty
+        House: Room outside is dirty
+        House: Room corridor is clean
+2:02:00 vacuum_cleaner>Move#26         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move livingroom bedroom robot battery_75 battery_50) Effect: in bedroom robot,not in livingroom robot,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Move#27         Intention started
+world                          World: Move robot
+world                          Belief changed: in bedroom robot
+Vacuum Cleaner: moved from livingroom to bedroom
+world                          Belief changed: not in livingroom robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+2:04:30 vacuum_cleaner>Move#27         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Clean bedroom robot battery_50 battery_25) Effect: clean bedroom,not dirty bedroom,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Clean#28        Intention started
+world                          World: Clean robot
+world                          Belief changed: clean bedroom
+House: Room bedroom is now clean
+world                          Belief changed: not dirty bedroom
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+2:06:45 Alarm of alice, it's 06:45
+2:07:00 PersonSensor: alice moved to kitchen from bedroom
+        CatSensor: cat moved to kitchen
+breakfast_agent                Belief changed: person_just_woke_up alice
+        SmartBreakfast: preparing for alice, it  will be ready at 07:15
+vacuum_cleaner>Clean#28        Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Move bedroom corridor robot battery_25 battery_0) Effect: in corridor robot,not in bedroom robot,not has_battery_level robot battery_25,has_battery_level robot battery_0
+vacuum_cleaner>Move#29         Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+        Vacuum Cleaner: moved from bedroom to corridor
+world                          Belief changed: not in bedroom robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_0
+2:07:15 Alarm of bob, it's 07:15
+2:07:30 PersonSensor: bob moved to kitchen from bedroom
+breakfast_agent                Belief changed: person_just_woke_up bob
+        SmartBreakfast: preparing for bob, it  will be ready at 07:45
+2:08:00 PersonSensor: alice moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up alice
+2:08:15 CatSensor: cat moved to entrance
+smart_cat_door_agent           Belief changed: cat_in_entrance
+        SmartDoor: cat in entrance: true
+        SmartDoor: door just opened
+2:08:30 PersonSensor: bob moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up bob
+2:09:30 vacuum_cleaner>Move#29         Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_25 battery_0) Effect: not has_battery_level robot battery_0,has_battery_level robot battery_25
+vacuum_cleaner>Charge#30       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_0
+world                          Belief changed: has_battery_level robot battery_25
+2:12:00 vacuum_cleaner>Charge#30       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#31       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+2:13:00 PersonSensor: alice moved to living_room from outside
+2:14:00 CatSensor: cat moved to living_room
+smart_cat_door_agent           Belief changed: not cat_in_entrance
+        SmartDoor: cat in entrance: false
+        SmartDoor: door just closed
+2:14:30 vacuum_cleaner>Charge#31       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_75 battery_50) Effect: not has_battery_level robot battery_50,has_battery_level robot battery_75
+vacuum_cleaner>Charge#32       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_75
+2:17:00 vacuum_cleaner>Charge#32       Intention success
+vacuum_cleaner>OnlinePlanning#1 Starting sequential step (Charge corridor robot battery_100 battery_75) Effect: not has_battery_level robot battery_75,has_battery_level robot battery_100
+vacuum_cleaner>Charge#33       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_100
+2:18:15 PersonSensor: bob moved to living_room from outside
+2:18:30 PersonSensor: bob moved to studio from living_room
+2:19:30 PersonSensor: alice moved to kitchen from living_room
+        CatSensor: cat moved to kitchen
+        PersonSensor: bob moved to kitchen from studio
+vacuum_cleaner>Charge#33       Intention success
+vacuum_cleaner>OnlinePlanning#1 Intention success
+vacuum_cleaner                 Succesfully used intention OnlinePlanning to achieve goal PddlGoal#0 goal:clean corridor,clean kitchen,clean bathroom,clean livingroom,clean bedroom,has_battery_level robot battery_100
+vacuum_cleaner                 Trying to use intention OnlinePlanning to achieve goal PddlGoal#0 goal:clean corridor,clean kitchen,clean bathroom,clean livingroom,clean bedroom,has_battery_level robot battery_100
+vacuum_cleaner>OnlinePlanning#34 Intention started
+world                          Belief changed: dirty kitchen
+world                          Belief changed: dirty bathroom
+2:20:30 PersonSensor: bob moved to living_room from kitchen
+2:21:15 vacuum_cleaner>OnlinePlanning#34 Plan found:
+vacuum_cleaner>OnlinePlanning#34 - (move corridor kitchen robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#34 - (clean kitchen robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#34 - (move kitchen corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#34 - (move corridor bathroom robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#34 - (clean bathroom robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#34 - (move bathroom corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_25 battery_0)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_50 battery_25)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_75 battery_50)
+vacuum_cleaner>OnlinePlanning#34 - (charge corridor robot battery_100 battery_75)
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Move corridor kitchen robot battery_100 battery_75) Effect: in kitchen robot,not in corridor robot,not has_battery_level robot battery_100,has_battery_level robot battery_75
+vacuum_cleaner>Move#35         Intention started
+world                          World: Move robot
+world                          Belief changed: in kitchen robot
+Vacuum Cleaner: moved from corridor to kitchen
+world                          Belief changed: not in corridor robot
+world                          Belief changed: not has_battery_level robot battery_100
+world                          Belief changed: has_battery_level robot battery_75
+2:21:30 PersonSensor: alice moved to bedroom from kitchen
+2:21:45 CatSensor: cat moved to bedroom
+2:22:30 PersonSensor: bob moved to bedroom from living_room
+        Alarm of bob has just been set
+        Alarm of alice has just been set
+2:22:45 SmartBreakfast: has been loaded
+2:23:00 House: Room corridor is now dirty
+2:23:45 HouseAgent: house consumption cost today is 0.50€
+        House: Room kitchen is dirty
+        House: Room livingroom is clean
+        House: Room entrance is dirty
+        House: Room bathroom is dirty
+        House: Room bedroom is clean
+        House: Room studio is dirty
+        House: Room outside is dirty
+        House: Room corridor is dirty
+vacuum_cleaner>Move#35         Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Clean kitchen robot battery_75 battery_50) Effect: clean kitchen,not dirty kitchen,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Clean#36        Intention started
+world                          World: Clean robot
+world                          Belief changed: not dirty kitchen
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+3:02:15 vacuum_cleaner>Clean#36        Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Move kitchen corridor robot battery_50 battery_25) Effect: in corridor robot,not in kitchen robot,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Move#37         Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+Vacuum Cleaner: moved from kitchen to corridor
+world                          Belief changed: not in kitchen robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+3:04:45 vacuum_cleaner>Move#37         Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#38       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+3:06:45 Alarm of alice, it's 06:45
+3:07:00 PersonSensor: alice moved to kitchen from bedroom
+        CatSensor: cat moved to kitchen
+breakfast_agent                Belief changed: person_just_woke_up alice
+        SmartBreakfast: preparing for alice, it  will be ready at 07:15
+3:07:15 Alarm of bob, it's 07:15
+vacuum_cleaner>Charge#38       Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Charge corridor robot battery_75 battery_50) Effect: not has_battery_level robot battery_50,has_battery_level robot battery_75
+vacuum_cleaner>Charge#39       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_75
+3:07:30 PersonSensor: bob moved to kitchen from bedroom
+breakfast_agent                Belief changed: person_just_woke_up bob
+        SmartBreakfast: preparing for bob, it  will be ready at 07:45
+3:08:00 PersonSensor: alice moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up alice
+3:08:15 CatSensor: cat moved to entrance
+smart_cat_door_agent           Belief changed: cat_in_entrance
+        SmartDoor: cat in entrance: true
+        SmartDoor: door just opened
+3:08:30 PersonSensor: bob moved to outside from kitchen
+breakfast_agent                Belief changed: not person_just_woke_up bob
+3:09:45 vacuum_cleaner>Charge#39       Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Move corridor bathroom robot battery_75 battery_50) Effect: in bathroom robot,not in corridor robot,not has_battery_level robot battery_75,has_battery_level robot battery_50
+vacuum_cleaner>Move#40         Intention started
+world                          World: Move robot
+world                          Belief changed: in bathroom robot
+Vacuum Cleaner: moved from corridor to bathroom
+world                          Belief changed: not in corridor robot
+world                          Belief changed: not has_battery_level robot battery_75
+world                          Belief changed: has_battery_level robot battery_50
+3:12:15 vacuum_cleaner>Move#40         Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Clean bathroom robot battery_50 battery_25) Effect: clean bathroom,not dirty bathroom,not has_battery_level robot battery_50,has_battery_level robot battery_25
+vacuum_cleaner>Clean#41        Intention started
+world                          World: Clean robot
+world                          Belief changed: not dirty bathroom
+world                          Belief changed: not has_battery_level robot battery_50
+world                          Belief changed: has_battery_level robot battery_25
+3:13:00 PersonSensor: alice moved to living_room from outside
+3:14:00 CatSensor: cat moved to living_room
+smart_cat_door_agent           Belief changed: not cat_in_entrance
+        SmartDoor: cat in entrance: false
+        SmartDoor: door just closed
+3:14:45 vacuum_cleaner>Clean#41        Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Move bathroom corridor robot battery_25 battery_0) Effect: in corridor robot,not in bathroom robot,not has_battery_level robot battery_25,has_battery_level robot battery_0
+vacuum_cleaner>Move#42         Intention started
+world                          World: Move robot
+world                          Belief changed: in corridor robot
+Vacuum Cleaner: moved from bathroom to corridor
+world                          Belief changed: not in bathroom robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_0
+3:17:15 vacuum_cleaner>Move#42         Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Charge corridor robot battery_25 battery_0) Effect: not has_battery_level robot battery_0,has_battery_level robot battery_25
+vacuum_cleaner>Charge#43       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_0
+world                          Belief changed: has_battery_level robot battery_25
+3:18:15 PersonSensor: bob moved to living_room from outside
+3:18:30 PersonSensor: bob moved to studio from living_room
+3:19:30 PersonSensor: alice moved to kitchen from living_room
+        CatSensor: cat moved to kitchen
+        PersonSensor: bob moved to kitchen from studio
+3:19:45 vacuum_cleaner>Charge#43       Intention success
+vacuum_cleaner>OnlinePlanning#34 Starting sequential step (Charge corridor robot battery_50 battery_25) Effect: not has_battery_level robot battery_25,has_battery_level robot battery_50
+vacuum_cleaner>Charge#44       Intention started
+world                          World: Charge robot
+world                          Belief changed: not has_battery_level robot battery_25
+world                          Belief changed: has_battery_level robot battery_50
+3:20:30 PersonSensor: bob moved to living_room from kitchen
+3:21:30 PersonSensor: alice moved to bedroom from kitchen
+3:21:45 CatSensor: cat moved to bedroom
