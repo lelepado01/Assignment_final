@@ -1,15 +1,15 @@
 
-# Autonomous Software Agents - Assignment 3
+# Autonomous Software Agents - Final Assignment
 
 ### Scenario
 
-The part of the scenario present in assignment 2 that has been implemented in this delivery contains five rooms: *kitchen*, *corridor*, *livingroom*, *bedroom* and *bathroom*. The rooms are connected as shown in the first assignment. 
+The part of the scenario present in assignment 2 that has been implemented contains five rooms: *kitchen*, *corridor*, *livingroom*, *bedroom* and *bathroom*. The rooms are connected as shown in the first assignment. 
 
 The agents implemented are two vacuum cleaner, one starts in the kitchen, the other in the bathroom. In the house there is only one charge pad, set up in the livingroom, and the robot moves back to the charge pad if battery is lower then 50%. 
 For simplicity the battery state has five levels: 100%, 75%, 50%, 25%, and empty.
 
 
-### Old Scenario Changes
+### Old Scenario Changes (Assignment 2 to Assignment 3)
 
 A new *vacuum_cleaner* device has been implemented, to keep track of how much electricity this agent uses, as well as the robot's position (file *src/devices/VacuumCleanerDevice.js*).
 
@@ -27,11 +27,3 @@ the command *node src/myworld/scenarioTest.js*
 
 A copy of the original pddl source files, that have been used to test the vacuum cleaner on 
 an online planner, can be found in *domain.pddl* and *problem.pddl*
-
-
-
-
-
-
-
-
