@@ -2,19 +2,6 @@
 const pddlActionIntention = require('../pddl/actions/pddlActionIntention')
 const world = require('./world')
 
-// class RobotAction extends pddlActionIntention {
-
-//     *exec () {
-//         for ( let b of this.effect ) {
-//             this.agent.beliefs.apply(b)
-// 		}
-//         yield new Promise(res=>setTimeout(res,100))
-//         this.log('effects applied')
-//         // this.log(this.agent.beliefs)
-//     }
-
-// }
-
 class Move extends pddlActionIntention {
 
     static parameters = ['from', 'to', 'robot', 'battery_level', 'battery_lower'];

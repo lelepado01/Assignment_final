@@ -1,6 +1,7 @@
 const House = require('../agents/House');
 const Agent = require('../bdi/Agent');
 const pddlActionIntention = require('../pddl/actions/pddlActionIntention');
+const Logger = require('../utils/Logger');
 
 const world = new Agent('world');
 {
@@ -32,7 +33,7 @@ const world = new Agent('world');
         async checkPreconditionAndApplyEffect () {
             if ( this.checkPrecondition() ) {
                 this.applyEffect()
-                await new Promise(res=>setTimeout(res,500))
+                await new Promise(res=>setTimeout(res,100))
             } else {
                 throw new Error('pddl precondition not valid'); //Promise is rejected!
 			}
@@ -105,19 +106,19 @@ const world = new Agent('world');
 
 
     world.Move = function ({from, to, robot, battery_level, battery_lower} = args) {
-        this.log('World: Move', robot)
+        // Logger.Log('World: Move {}', robot)
         return new WorldMove(world, {from, to, robot, battery_level, battery_lower} ).checkPreconditionAndApplyEffect()
         .catch(err=>{this.error('world.Move failed:', err.message || err); throw err;})
     }
 
     world.Clean = function ({room, robot, battery_level, battery_lower} = args) {
-        this.log('World: Clean', robot)
+        // this.log('World: Clean', robot)
         return new WorldClean(world, {room, robot, battery_level, battery_lower} ).checkPreconditionAndApplyEffect()
         .catch(err=>{this.error('world.Clean failed:', err.message || err); throw err;})
     }
 
     world.Charge = function ({room, robot, battery_level, battery_lower} = args) {
-        this.log('World: Charge', robot)
+        // this.log('World: Charge', robot)
         return new WorldCharge(world, {room, robot, battery_level, battery_lower} ).checkPreconditionAndApplyEffect()
         .catch(err=>{this.error('world.Charge failed:', err.message || err); throw err;})
     }

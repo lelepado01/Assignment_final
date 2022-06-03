@@ -1,3 +1,4 @@
+const Logger = require("./Logger")
 const Observable = require("./Observable")
 
 class MessageDispatcher extends Observable {
@@ -26,8 +27,8 @@ class MessageDispatcher extends Observable {
     }
     
     async sendTo (to, goal) {
-		console.log(this.constructor.#dispatchers)
-		console.log(to)
+		Logger.Log(this.constructor.#dispatchers)
+		Logger.Log(to)
         if (!to in this.constructor.#dispatchers)
             this.constructor.#dispatchers[to] = new MessageDispatcher(to)
         this.constructor.#dispatchers[to].pushMessage(goal)

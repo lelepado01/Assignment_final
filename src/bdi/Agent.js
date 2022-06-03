@@ -1,6 +1,7 @@
 const Beliefset =  require('./Beliefset')
 const Intention = require('./Intention');
 const chalk = require('chalk');
+const Logger = require('../utils/Logger');
 
 var nextId = 0
 const colors = ['red', 'blue', 'green', 'yellow', 'magenta', 'cyan', 'redBright', 'greenBright', 'yellowBright', 'blueBright', 'magentaBright', 'cyanBright', 'whiteBright']
@@ -61,7 +62,7 @@ class Agent {
             if (!intentionClass.applicable(subGoal)) // By default applicable(goal) returns true (see class Intention)
                 continue; // if not applicable try next
     
-            this.log('Trying to use intention', intentionClass.name, 'to achieve goal', subGoal.toString())
+            Logger.Log('Trying to use intention {} to achieve goal {}', intentionClass.name, subGoal.toString())
     
             var intention = new intentionClass(this, subGoal)
             
@@ -71,7 +72,7 @@ class Agent {
             } )
     
             if ( success ) {
-                this.log('Succesfully used intention', intentionClass.name, 'to achieve goal', subGoal.toString())
+                Logger.Log('Succesfully used intention {} to achieve goal {}', intentionClass.name, subGoal.toString())
                 subGoal.achieved = true;
                 return Promise.resolve(true) // same as: return true;
             }
@@ -81,7 +82,7 @@ class Agent {
 
         }
         
-        this.log('No success in achieving goal', subGoal.toString())
+        Logger.Log('No success in achieving goal {}', subGoal.toString())
         return Promise.resolve(false) // different from: return false; which would reject the promise!!!
         // throw new Error('No success in achieving goal'); // Promise rejection with explicit error. This should always be catched outside!
     

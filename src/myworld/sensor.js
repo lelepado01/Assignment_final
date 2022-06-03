@@ -1,7 +1,6 @@
 
 
 let sensor = (agent, world) => (value, key, observable) => {
-	// console.log("sensor: " + key + ", " + value)
 	if ((key.includes("clean") && value) || (key.includes("dirty") && !value)) {
 		let room = key.toString().split(" ")[1];
 		world.house.SetClean(room)
