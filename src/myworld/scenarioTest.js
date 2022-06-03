@@ -1,64 +1,30 @@
 
 const Clock =  require('../utils/Clock')
 const Agent = require('../bdi/Agent')
+const VacuumCleaner = require('../agents/VacuumCleaner')
+const Logger = require('../utils/Logger')
 
 const { AliceAlarmGoal, AliceAlarmIntention, BobAlarmGoal, BobAlarmIntention } =  require('../goals/Alarm')
 const { BreakfastGoal, BreakfastIntention } = require('../goals/Breakfast')
 const { SenseCatGoal, SenseCatIntention } = require('../goals/CatSensor')
 const { SmartDoorIntention, SmartDoorGoal } = require('../goals/SmartDoor')
 const { SensePersonGoal, SensePersonIntention } = require('../goals/PeopleSensor')
-const { SendInfoIntention, SendInfoGoal } = require('../goals/SendInfo')
 
-const Logger = require('../utils/Logger')
-
-const PlanningGoal = require('../pddl/PlanningGoal')
-
-const { Move, Clean, Charge } = require('./actions')
-const { GOALS, DIRTIABLE_ROOMS } = require('./lists')
-const { RetryIntention, RetryGoal } = require('../goals/Retry')
+const { DIRTIABLE_ROOMS } = require('./lists')
 
 const world = require('./world')
+const { sensor } = require('./sensor')
 
-let vacuum_cleaner_agent = new Agent('vacuum_cleaner')
+let vacuum_cleaner_agent = new VacuumCleaner('vacuum_cleaner', world)
 world.house.devices.vacuum_cleaner.SetName(vacuum_cleaner_agent.name)
+
 let inits = world.house.GetInitPDDLInfo()
 inits.forEach(obj => vacuum_cleaner_agent.beliefs.declare(obj));
 inits.forEach(obj => world.beliefs.declare(obj));
 
-let sensor = (agent) => (value, key, observable) => {
-	if (key.includes("clean") && value) {
-		let room = key.toString().split(" ")[1];
-		world.house.SetClean(room)
-	}
+world.beliefs.observeAny( sensor(vacuum_cleaner_agent, world));  
 
-	if (key.includes("in") && value) {
-		let to_room = key.toString().split(" ")[1];
-		world.house.devices.vacuum_cleaner.Move(to_room)
-	}
-
-
-	if (key.includes("has_battery_level")) {
-		world.house.devices.vacuum_cleaner.UpdateCost(); 
-	}
-	
-	if (value){
-		agent.beliefs.declare(key);
-	} else {
-		agent.beliefs.undeclare(key);
-	}
-}
-
-world.beliefs.observeAny( sensor(vacuum_cleaner_agent));  
-
-let {OnlinePlanning} = require('../pddl/OnlinePlanner')([Move, Clean, Charge])
-vacuum_cleaner_agent.intentions.push(OnlinePlanning)
-vacuum_cleaner_agent.intentions.push(RetryIntention)
-vacuum_cleaner_agent.intentions.push(SendInfoIntention)
-
-vacuum_cleaner_agent.postSubGoal( new RetryGoal( { goal: new PlanningGoal( { goal: GOALS } ), world: world} ) )
-vacuum_cleaner_agent.postSubGoal( new SendInfoGoal() )
-
-
+let dayspassed = 0
 // Daily schedule
 Clock.global.observe('mm', (key, mm) => {
     
@@ -88,12 +54,19 @@ Clock.global.observe('mm', (key, mm) => {
 	if(time.hh==22 && time.mm==30) world.house.people.bob.moveToRoom('bedroom')
 
 	if(time.hh==22 && time.mm==45) world.house.devices.breakfast_machine.Load();  
- 
+
+	let MIN_DAYS_PASSED = 2
+
 	if(time.hh==23 && time.mm==00) {
-		// if (world.house.RoomsAreAllClean()) {
-		let room_index = Math.floor(Math.random() * DIRTIABLE_ROOMS.length); 
-		world.SetHouseRoomDirty(DIRTIABLE_ROOMS[room_index]); 
-	// }
+		if (world.house.RoomsAreAllClean()) {
+			dayspassed++
+			if (dayspassed > MIN_DAYS_PASSED){
+				dayspassed = 0
+				let room_index = Math.floor(Math.random() * DIRTIABLE_ROOMS.length); 
+				Logger.Log("Day has passed! {}", DIRTIABLE_ROOMS[room_index])
+				world.SetHouseRoomDirty(DIRTIABLE_ROOMS[room_index]); 
+			}
+		}
 	}
 
 	if (time.hh == 23 && time.mm == 45) {
@@ -121,14 +94,3 @@ a3.intentions.push(SenseCatIntention);
 a3.postSubGoal(new SenseCatGoal(world.house.people.cat)); 
 a3.intentions.push(SmartDoorIntention); 
 a3.postSubGoal(new SmartDoorGoal(world.house.devices.smart_door)); 
-
-
-
-dict = {}
-
-let name = "ciaoo"
-dict[name] = "ciaop ammma"
-
-
-console.log(dict)
-exit(1)

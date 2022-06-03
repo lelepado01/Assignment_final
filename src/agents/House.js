@@ -6,7 +6,10 @@ const Cat = require("../people/Cat");
 const Person = require("../people/Person");
 const VacuumCleanerDevice = require("../devices/VacuumCleanerDevice");
 const Logger = require("../utils/Logger");
-const { INITS, DIRTIABLE_ROOMS } = require("../myworld/lists");
+const { INITS, DIRTIABLE_ROOMS, GOALS } = require("../myworld/lists");
+const { MessageDispatcher } = require("../utils/MessageDispatcher");
+const { RetryGoal } = require("../goals/Retry");
+const PlanningGoal = require('../pddl/PlanningGoal');
 
 class House {
 
@@ -36,6 +39,8 @@ class House {
 			bob_alarm: new AlarmDevice("bob", 7, 15),
 			vacuum_cleaner: new VacuumCleanerDevice() 
 		}
+
+		this.messageDispatcher = new MessageDispatcher();
         
         Clock.startTimer()
     }
@@ -58,21 +63,22 @@ class House {
 	}
 
 	SetClean(room){
-		if (this.rooms[room]){
+		if (Object.keys(this.rooms).includes(room)){
 			this.rooms[room].is_clean = true
 			Logger.Log("House: Room {} is now clean", room)
 		}
 	}
 
-	SetDirty(room){
-		if (this.rooms[room]){
+	SetDirty(room, world){
+		if (this.RoomsAreAllClean()){
+			let request = new RetryGoal( { goal: new PlanningGoal( { goal: GOALS } ), world: world} ) 
+			this.messageDispatcher.sendTo( this.devices.vacuum_cleaner.name, request )
+		}
+
+		if (Object.keys(this.rooms).includes(room)){
 			this.rooms[room].is_clean = false
 			Logger.Log("House: Room {} is now dirty", room)
 		}
-	}
-
-	RegisterAgent(agent){
-		this.messageDispatcher.authenticate(agent)
 	}
 
 	GetInitPDDLInfo(){		

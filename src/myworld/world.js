@@ -1,11 +1,6 @@
 const House = require('../agents/House');
 const Agent = require('../bdi/Agent');
-const { RetryGoal } = require('../goals/Retry');
 const pddlActionIntention = require('../pddl/actions/pddlActionIntention');
-const { GOALS } = require('./lists');
-const PlanningGoal = require('../pddl/PlanningGoal');
-const { MessageDispatcher } = require('../utils/MessageDispatcher');
-
 
 const world = new Agent('world');
 {
@@ -128,14 +123,9 @@ const world = new Agent('world');
     }
 
 	world.SetHouseRoomDirty = function(room){
-		if (this.house.RoomsAreAllClean()){
-			let request = new RetryGoal( { goal: new PlanningGoal( { goal: GOALS } ), world: world} ) 
-			this.messageDispatcher.sendTo( this.house.devices.vacuum_cleaner.name, request )
-		}
-		this.house.SetDirty(room)
+		this.house.SetDirty(room, this)
 	}
 
-	world.messageDispatcher = new MessageDispatcher();
 	world.house = new House();
 }
 

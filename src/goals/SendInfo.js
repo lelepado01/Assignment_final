@@ -1,5 +1,6 @@
 const Goal = require("../bdi/Goal")
 const Intention = require("../bdi/Intention")
+const Logger = require("../utils/Logger")
 const {MessageDispatcher} = require("../utils/MessageDispatcher")
 
 class SendInfoGoal extends Goal {}
@@ -14,7 +15,7 @@ class SendInfoIntention extends Intention {
             yield myMessageDispatcher.notifyChange('newMessageReceived')
             let newMessage = myMessageDispatcher.readMessage()
             if (newMessage && newMessage instanceof Goal) {
-                this.log('Reading received message', newMessage.toString())
+				Logger.Log('Reading received message from agent: {}', this.agent.name)
                 yield this.agent.postSubGoal(newMessage)
             }
         }
