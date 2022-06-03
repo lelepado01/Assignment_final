@@ -414,7 +414,6 @@ smart_cat_door_agent           Belief changed: not cat_in_entrance
         Alarm of alice has just been set
         Alarm of bob has just been set
 2:22:45 SmartBreakfast: has been loaded
-2:23:00 Day has passed! bedroom
 {
   vacuum_cleaner: MessageDispatcher {
     genericObservers: [],

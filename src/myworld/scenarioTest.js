@@ -63,7 +63,7 @@ Clock.global.observe('mm', (key, mm) => {
 			if (dayspassed > MIN_DAYS_PASSED){
 				dayspassed = 0
 				let room_index = Math.floor(Math.random() * DIRTIABLE_ROOMS.length); 
-				Logger.Log("Day has passed! {}", DIRTIABLE_ROOMS[room_index])
+				// Logger.Log("Day has passed! {}", DIRTIABLE_ROOMS[room_index])
 				world.SetHouseRoomDirty(DIRTIABLE_ROOMS[room_index]); 
 			}
 		}
