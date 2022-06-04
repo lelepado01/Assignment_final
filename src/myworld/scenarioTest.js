@@ -24,8 +24,8 @@ inits.forEach(obj => world.beliefs.declare(obj));
 
 world.beliefs.observeAny( sensor(vacuum_cleaner_agent, world));  
 
-let dayspassed = 0
-// Daily schedule
+// Used to let some days pass before restarting the vacuum cleaner, as it should be able to stop and restart as needed
+let dayspassed = 0 
 Clock.global.observe('mm', (key, mm) => {
     
 	var time = Clock.global
